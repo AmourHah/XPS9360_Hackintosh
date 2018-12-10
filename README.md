@@ -14,9 +14,14 @@ XPS9360_Hackintosh_8250u使用笔记
         bash XPS9360.sh --compile-dsdt 
         bash XPS9360.sh --enable-3rdparty
         bash XPS9360.sh --disable-touchid
-      * 修复声音 bash XPS9360.sh --patch-hda  同时删除EFI/kexts/applealc.kext
+      * 修复声音 
+        * 方法一：
+        * sudo ./XPS9360.sh --patch-hda , 同时删除EFI/kexts/AppleAlc.kext
+        * 方法二(推荐)：
+        * 对比方法一，无底噪，无插入时的短暂刺响，解决了唤醒时耳机无效问题
+        * 移动AppleAlc.kext至clover/kexts/other , commcode注入/Library/Extensions/目录 ，修改ssdt alcid=13
       * 获取三码
-      * 蓝牙设置  把EFI/kexts/Library-Extensions里面的蓝牙kext文件安装到/System/Library/Extensions/目录
+      * 蓝牙设置  把EFI/kexts/Library-Extensions里面的蓝牙kext文件安装到/Library/Extensions/目录
       * 参照 https://github.com/0xHJK/XPS13-9360-i5-8250U-macOS
 
 * 插件配置
